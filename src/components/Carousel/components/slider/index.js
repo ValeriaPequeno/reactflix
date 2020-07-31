@@ -20,11 +20,13 @@ const Container = styled.ul`
     }
   }
   
-  .slick-prev {
+  .slick-prev: before {
     left: 0;
+    color:red;
   }
-  .slick-next {
+  .slick-next: before {
     right: 16px;
+    color:red;
   }
 `;
 
@@ -43,7 +45,7 @@ const Slider = ({ children }) => (
   <Container>
     <SlickSlider {...{
       dots: false,
-      infinite: false,
+      infinite: true,
       speed: 300,
       centerMode: false,
       variableWidth: true,

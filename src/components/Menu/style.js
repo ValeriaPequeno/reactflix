@@ -6,6 +6,7 @@ export const LogoImage = styled.img`
 
     @media(max-width:800px){
         max-width: 105px;
+        display: flex;
         justify-content: center;
     }
 `;
