@@ -1,12 +1,13 @@
-import styled from "styled-components";
-//Se quiser usar o componente já com o link associado:
-//import {Link} from 'react-router-dom';
-//const Button = styled.(Link)`
+import styled from 'styled-components';
+// Se quiser usar o componente já com o link associado:
+// import {Link} from 'react-router-dom';
+// const Button = styled.(Link)`
 
 const Button = styled.button`
  
   border-radius: 5px;
   border : 1px solid var(--white);
+  background : var(--black);
   color: var(--white);
   font-size : 16px;
   font-weight: bold;
@@ -31,6 +32,6 @@ const Button = styled.button`
       border: 0;
   }
 `;
-//& está no lugar do botão
+// & está no lugar do botão
 
-export default Button
+export default Button;
