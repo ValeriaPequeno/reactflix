@@ -41,7 +41,6 @@ function CadastroCategoria() {
       infosDoEvento.target.value,
     );
   }
-
   // ============
   useEffect(() => {
     if (window.location.href.includes('localhost')) {
