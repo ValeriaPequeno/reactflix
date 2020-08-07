@@ -3,44 +3,25 @@ import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/pageDefault';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
+import useForm from '../../../hooks/useForm';
 
 // Os componentes nada mais são do que funções
 function CadastroCategoria() {
   const [categorias, setCategorias] = useState([]);
 
   const valoresIniciais = {
+    id: 0,
     titulo: '',
     descricao: '',
     cor: '#F5DE03',
+    link_extra: '',
   };
-
-  // setNomeCategoria é uma função, a qual estamos a dar esse nome
-  const [values, setvalues] = useState(valoresIniciais);
 
   // console: usada para ver/testar rapidamente o código
   // console.log('[values]',values);
 
-  function setValue(chave, valor) {
-    // chave: nome, descricao, bla, ...
-    // [chave] -> atribui dinamicamente o valor da chave, evita assim vários ifs
-    setvalues({
-      ...values,
-      [chave]: valor, // nome : 'valor'
-    });
-  }
+  const { handleChange, values, clearForm } = useForm(valoresIniciais);
 
-  function handleChange(infosDoEvento) {
-    // Essa versão do código, apesar de mais elegante, sei lá porque não funcionou para mim
-    // const {getAttribute, value} = infosDoEvento.target;
-    // setValue(
-    //    getAttribute('name'),
-    //    value
-    // );
-    setValue(
-      infosDoEvento.target.getAttribute('name'),
-      infosDoEvento.target.value,
-    );
-  }
   // ============
   useEffect(() => {
     const URL_TOP = window.location.hostname.includes('localhost')
@@ -59,6 +40,22 @@ function CadastroCategoria() {
         throw new Error('Não foi possível obter os dados');
       });
   }, []);
+  { /*
+  function handleSubmit() {
+    // eslint-disable-next-line no-restricted-globals
+    event.preventDefault();
+
+    const idCategoria = categories.length + 1;
+    console.log(categories.id);
+    categoriesRepository.create({
+      id: idCategoria,
+      titulo: values.title,
+      cor: values.color,
+      link_extra: values.link_extra,
+    });
+  }
+*/ }
+
   return (
     <PageDefault>
 
@@ -74,7 +71,7 @@ function CadastroCategoria() {
           ...categorias,
           values,
         ]);
-        setvalues(valoresIniciais);
+        clearForm();
       }}
       >
 
@@ -84,6 +81,7 @@ function CadastroCategoria() {
           name="titulo"
           values={values.titulo}
           onChange={handleChange}
+
         />
 
         <FormField
@@ -92,6 +90,7 @@ function CadastroCategoria() {
           name="descricao"
           values={values.descricao}
           onChange={handleChange}
+
         />
 
         <FormField
@@ -100,6 +99,7 @@ function CadastroCategoria() {
           name="cor"
           values={values.cor}
           onChange={handleChange}
+
         />
 
         <Button>
