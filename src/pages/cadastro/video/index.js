@@ -27,6 +27,8 @@ function CadastroVideo() {
       });
   }, []);
 
+  console.log(categoryTitles);
+
   return (
     <PageDefault>
 
@@ -37,12 +39,12 @@ function CadastroVideo() {
 
         // alert('vídeo cadastrado com sucesso!');
 
-        const categoriaEscolhida = categorias.find((categoria) => categoria.titulo === values.categoria);
+        const categoriaE = categorias.find((categoria) => categoria.titulo === values.categoria);
 
         videosRepository.create({
           titulo: values.titulo,
           url: values.url,
-          categoriaId: categoriaEscolhida.id,
+          categoriaId: categoriaE.id,
         })
           .then(() => {
             console.log('Cadastrou com sucesso!');
@@ -78,7 +80,7 @@ function CadastroVideo() {
       </form>
       <br />
       <br />
-      <Link to="categoria">
+      <Link to="/cadastro/categoria">
         Cadastrar Categoria
       </Link>
     </PageDefault>
