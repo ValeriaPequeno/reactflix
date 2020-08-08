@@ -1,21 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/img/logo2.png';
-import './Menu.css';
+import { LogoImage, MenuWrapper } from './style';
+// import './Menu.css';
 import Button from '../Button';
-// import ButtonLink from './components/ButtonLink';
+
+// import ButtonLink from '../Menu/components/ButtonLink';
+
+// será um componente, todo componente começa com Maiúsculo
 
 function Menu() {
   return (
-    <nav className="Menu">
+    <MenuWrapper className="Menu">
       <Link to="/">
-        <img className="Logo" src={Logo} alt="QcFlix logo" />
+        <LogoImage src={Logo} alt="Logo da minha página" />
       </Link>
-
       <Button as={Link} className="ButtonLink" to="/cadastro/video">
         Novo vídeo
       </Button>
-    </nav>
+    </MenuWrapper>
   );
 }
 

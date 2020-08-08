@@ -50,6 +50,16 @@
         "text": "Curso sobre aprendizado na Alura",
         "url": "https://alura.com.br/curso-online-aprender-a-aprender-tecnicas-para-seu-autodesenvolvimento"
       }
+    },
+    {
+      "descricao": "Minhas músicas favoritas",
+      "id": 7
+    },
+    {
+      "titulo": "Música",
+      "descricao": "Minhas músicas favoritas",
+      "cor": "#c3d822",
+      "id": 8
     }
   ],
   "videos": [
@@ -57,13 +67,15 @@
       "id": 1,
       "categoriaId": 1,
       "titulo": "O que faz uma desenvolvedora front-end? #HipstersPontoTube",
-      "url": "https://www.youtube.com/watch?v=ZY3-MFxVdEw"
+      "url": "https://www.youtube.com/watch?v=ZY3-MFxVdEw",
+      "description": "O que é front-end? Trabalhando na área, os termos HTML, CSS e Javascript fazem parte da rotina dos desenvolvedores, mas o que eles fazem, afinal? Descubra com a Vanessa!"
     },
     {
       "id": 2,
       "categoriaId": 1,
       "titulo": "SEO com React",
-      "url": "https://www.youtube.com/watch?v=c8mVlakBESE"
+      "url": "https://www.youtube.com/watch?v=c8mVlakBESE",
+      "description": "Será que é tão difícil fazer SEO com React?"
     },
     {
       "id": 3,
@@ -250,6 +262,30 @@
       "url": "https://www.youtube.com/watch?v=jOAU81jdi-c_%",
       "categoriaId": 1,
       "id": 33
+    },
+    {
+      "titulo": "Video padrão",
+      "url": "https://www.youtube.com/watch?v=jOAU81jdi-c",
+      "categoriaId": 1,
+      "id": 34
+    },
+    {
+      "titulo": "Video padrão23",
+      "url": "https://www.youtube.com/watch?v=jOAU81jdi-c",
+      "categoriaId": 1,
+      "id": 35
+    },
+    {
+      "titulo": "Video padrão2378",
+      "url": "https://www.youtube.com/watch?v=jOAU81jdi-c",
+      "categoriaId": 1,
+      "id": 36
+    },
+    {
+      "titulo": "Mozart",
+      "url": "https://www.youtube.com/watch?v=Rb0UmrCXxVA",
+      "categoriaId": 4,
+      "id": 37
     }
   ]
 }

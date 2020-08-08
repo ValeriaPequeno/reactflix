@@ -1,20 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+// import React, { useState, useEffect } from 'react';
+import React from 'react';
+// import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/pageDefault';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
 import useForm from '../../../hooks/useForm';
+import categoriasRepository from '../../../repositories/categorias';
 
 // Os componentes nada mais são do que funções
 function CadastroCategoria() {
-  const [categorias, setCategorias] = useState([]);
+  // const [categorias, setCategorias] = useState([]);
 
   const valoresIniciais = {
-    id: 0,
+    // id: 0,
     titulo: '',
-    descricao: '',
-    cor: '#F5DE03',
-    link_extra: '',
+    description: '',
+    cor: '',
+    // link_extra: '',
   };
 
   // console: usada para ver/testar rapidamente o código
@@ -22,6 +24,22 @@ function CadastroCategoria() {
 
   const { handleChange, values, clearForm } = useForm(valoresIniciais);
 
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    categoriasRepository
+      .create({
+        titulo: values.titulo,
+        descricao: values.description,
+        cor: values.cor,
+      })
+      .then(() => {
+        alert('Categoria cadastrada');
+        clearForm();
+      });
+  }
+
+  /* versão inicial em que não havia uma criação na BD
   // ============
   useEffect(() => {
     const URL_TOP = window.location.hostname.includes('localhost')
@@ -40,30 +58,20 @@ function CadastroCategoria() {
         throw new Error('Não foi possível obter os dados');
       });
   }, []);
-  { /*
-  function handleSubmit() {
-    // eslint-disable-next-line no-restricted-globals
-    event.preventDefault();
 
-    const idCategoria = categories.length + 1;
-    console.log(categories.id);
-    categoriesRepository.create({
-      id: idCategoria,
-      titulo: values.title,
-      cor: values.color,
-      link_extra: values.link_extra,
-    });
-  }
-*/ }
+*/
 
   return (
     <PageDefault>
-
+      {/*
       <h1>
         Cadastro de Categoria:
         {values.titulo}
       </h1>
+      */}
+      <form onSubmit={handleSubmit}>
 
+        {/* versão inicial
       <form onSubmit={function handleSubmit(infosDoEvento) {
         infosDoEvento.preventDefault();
         // console.log('Tentativa de enviar o form');
@@ -74,12 +82,13 @@ function CadastroCategoria() {
         clearForm();
       }}
       >
+    */}
 
         <FormField
           label="Nome da Categoria"
           type="text"
           name="titulo"
-          values={values.titulo}
+          value={values.titulo}
           onChange={handleChange}
 
         />
@@ -87,8 +96,8 @@ function CadastroCategoria() {
         <FormField
           label="Descricao"
           type="textarea"
-          name="descricao"
-          values={values.descricao}
+          name="description"
+          value={values.description}
           onChange={handleChange}
 
         />
@@ -97,16 +106,17 @@ function CadastroCategoria() {
           label="Cor"
           type="color"
           name="cor"
-          values={values.cor}
+          value={values.cor}
           onChange={handleChange}
 
         />
 
-        <Button>
+        <Button type="submit">
           Cadastrar
         </Button>
       </form>
 
+      {/*
       {categorias.length === 0 && (
       <div>
         Loading ...
@@ -119,10 +129,14 @@ function CadastroCategoria() {
           </li>
         ))}
       </ul>
+        */}
 
+      {/* Isto está redundante pois o próprio logo no PageDefault leva para a página inicial
       <Link to="/">
         Ir para a home
       </Link>
+    */}
+
     </PageDefault>
   );
 }

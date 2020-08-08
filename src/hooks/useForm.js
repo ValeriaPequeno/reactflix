@@ -31,8 +31,8 @@ function useForm(valoresIniciais) {
   }
 
   return {
-    handleChange,
     values,
+    handleChange,
     clearForm,
   };
 }

@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import styled, { css } from 'styled-components';
-import Menu from '../Menu';
+import Menu from '../Menu/index';
 import Footer from '../Footer';
 
 // styled é o que permite colocar css dentro do javascript

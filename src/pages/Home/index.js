@@ -53,8 +53,7 @@ function Home() {
               <BannerMain
                 videoTitle={dadosIniciais[0].videos[0].titulo}
                 url={dadosIniciais[0].videos[0].url}
-                // videoDescription={dadosIniciais[0].videos[0].description} --Nao funcionou
-                videoDescription="O que é front-end? Trabalhando na área, os termos HTML, CSS e Javascript fazem parte da rotina dos desenvolvedores, mas o que eles fazem, afinal? Descubra com a Vanessa!"
+                videoDescription={dadosIniciais[0].videos[0].description}
               />
               <Carousel
                 ignoreFirstVideo

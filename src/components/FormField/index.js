@@ -8,6 +8,7 @@ const WrapperFormField = styled.div`
   textarea {
     min-height: 150px;
   }
+
   input[type="color"]{
     padding-left: 56px;
   }
@@ -38,7 +39,7 @@ Label.Text = styled.span`
 `;
 
 const Input = styled.input`
-  background: #53585D;
+  background: var(--blue);
   color: var(--grayLight);
   display: block;
   width: 100%;
@@ -48,7 +49,7 @@ const Input = styled.input`
   outline:0;
   border:0;
   border-top: 4px solid transparent;
-  border-bottom: 4px solid #53585D;
+  border-bottom: 4px solid var(--blue);
 
   paddind: 16px 16px;
   margin-bottom: 45px;
@@ -64,14 +65,13 @@ const Input = styled.input`
   &:focus: not([type="color"])+ span {
     transform: scale(.6) translateY(-10px);
   } 
-  ${function ({ hasValue }) {
-    return hasValue && css`
-      &:not([type='color']) + span {
-        transform: scale(.6) translateY(-10px);
-      }
-    `;
-  }}
-`;
+
+  ${({ hasValue }) => hasValue && css`
+    &:not([type='color']) + span {
+      transform: scale(.6) translateY(-10px);
+    }
+  `}
+  `;
 
 function FormField({
   label, type, name, value, onChange, suggestions,
@@ -96,8 +96,7 @@ function FormField({
           hasValue={hasValue}
           onChange={onChange}
           autoComplete={hasSuggestions ? 'off' : 'on'}
-          // list={hasSuggestions ? `suggestionFor_${fieldId}` : undefined}
-          list={`suggestionFor_${fieldId}`}
+          list={hasSuggestions ? `suggestionFor_${fieldId}` : undefined}
         />
         <Label.Text>
           {label}

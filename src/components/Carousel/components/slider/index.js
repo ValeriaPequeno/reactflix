@@ -3,6 +3,8 @@ import React from 'react';
 import SlickSlider from 'react-slick';
 import styled from 'styled-components';
 
+// color: ${(props) => (props.color ? props.color : '#fff')}; --> para colocar
+// cores das setas de acordo com a categoria
 const Container = styled.ul`
   padding: 0;
   margin: 0;
@@ -17,10 +19,9 @@ const Container = styled.ul`
     transform: initial;
     &:before {
       font-size: 30px;
-      color: ${props => props.color ? props.color : '#fff'};
+      color: ${(props) => (props.color ? props.color : '#fff')};
     }
   }
-  
   
   .slick-prev: {
     left: 0;
@@ -41,9 +42,10 @@ export const SliderItem = styled.li`
   }
 `;
 
-
+// infinite: true --> faz com que a lista de videos fiquem em um ciclo: quando acaba
+// mostra o primeiro, de seguida, como no netflix
 const Slider = ({ children, color }) => (
-  <Container color = {color}>
+  <Container color={color}>
     <SlickSlider {...{
       dots: false,
       infinite: true,
@@ -58,4 +60,4 @@ const Slider = ({ children, color }) => (
   </Container>
 );
 
-export default Slider; 
+export default Slider;

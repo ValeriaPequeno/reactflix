@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import PageDefault from '../../../components/pageDefault';
@@ -16,7 +17,7 @@ function CadastroVideo() {
   const { handleChange, values } = useForm({
     titulo: 'Video padrão',
     url: 'https://www.youtube.com/watch?v=jOAU81jdi-c',
-    categoria: 'Front End',
+    categoria: '',
   });
 
   useEffect(() => {
@@ -27,7 +28,8 @@ function CadastroVideo() {
       });
   }, []);
 
-  console.log(categoryTitles);
+  // eslint-disable-next-line no-console
+  console.log('categoryTitle: ', categoryTitles);
 
   return (
     <PageDefault>
@@ -39,12 +41,17 @@ function CadastroVideo() {
 
         // alert('vídeo cadastrado com sucesso!');
 
-        const categoriaE = categorias.find((categoria) => categoria.titulo === values.categoria);
+        // const categoriaE = categorias.find((categoria) => categoria.titulo === values.categoria);
+
+        // eslint-disable-next-line arrow-body-style
+        const categoriaEscolhida = categorias.find((categoria) => {
+          return categoria.titulo === values.categoria;
+        });
 
         videosRepository.create({
           titulo: values.titulo,
           url: values.url,
-          categoriaId: categoriaE.id,
+          categoriaId: categoriaEscolhida.id,
         })
           .then(() => {
             console.log('Cadastrou com sucesso!');
